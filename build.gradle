@@ -15,8 +15,8 @@ apply plugin: 'kotlin'
 
 
 version = "1.0"
-group = "com.frierenzk.customgravisuit" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "customgravisuit"
+group = "com.frierenzk.gravitational_armor" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "gravitational_armor"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
