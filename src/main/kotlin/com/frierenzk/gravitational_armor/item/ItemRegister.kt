@@ -1,7 +1,5 @@
 package com.frierenzk.gravitational_armor.item
 
-import com.frierenzk.gravitational_armor.item.crafting.ItemCoolingCore
-import com.frierenzk.gravitational_armor.item.crafting.ItemSuperconductor
 import com.frierenzk.gravitational_armor.item.crafting.ItemSuperconductorCover
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.item.Item
@@ -12,40 +10,30 @@ import net.minecraftforge.fml.relauncher.SideOnly
 
 object ItemRegister {
     private val nameMap = mapOf(
-            Pair("superconductorCover",Pair("superconductorCover","crafting/superconductor_cover")), //first one is language var name, and second one is model json name
-            Pair("superconductor",Pair("superconductor","crafting/superconductor")),
-            Pair("coolingCore",Pair("coolingCore","crafting/cooling_core"))
+            Pair("superconductorCover","crafting/superconductor_cover"), //first one is language var name, and second one is model json name
+            Pair("superconductor","crafting/superconductor"),
+            Pair("coolingCore","crafting/cooling_core"),
+            Pair("gravitationEngine","crafting/gravitation_engine")
     )
 
-    //val registMap = HashMap<String,Item>()
-
-    val itemSuperconductorCover: Item = ItemSuperconductorCover().setUnlocalizedName((nameMap["superconductorCover"] ?: errorPuts("superconductorCover")).first)
-    val itemSuperconductor:Item = ItemSuperconductor().setUnlocalizedName((nameMap["superconductor"] ?: errorPuts("superconductor")).first)
-    val itemCoolingCore:Item = ItemCoolingCore().setUnlocalizedName((nameMap["coolingCore"] ?: errorPuts("coolingCore")).first)
+    private val registerMap = HashMap<String,Item>()
 
     fun init(){
-        //registMap["superconductorCover"] = ItemSuperconductorCover().setUnlocalizedName((nameMap["superconductorCover"] ?: errorPuts("superconductorCover")).first)
-        //registMap["superconductor"] = ItemSuperconductorCover().setUnlocalizedName((nameMap["superconductor"] ?: errorPuts("superconductor")).first)
-        //registMap["coolingCore"] = ItemSuperconductorCover().setUnlocalizedName((nameMap["coolingCore"] ?: errorPuts("coolingCore")).first)
+        registerMap["superconductorCover"] = ItemSuperconductorCover().setUnlocalizedName("superconductorCover")
+        registerMap["superconductor"] = ItemSuperconductorCover().setUnlocalizedName("superconductor")
+        registerMap["coolingCore"] = ItemSuperconductorCover().setUnlocalizedName("coolingCore")
+        registerMap["gravitationEngine"] = ItemSuperconductorCover().setUnlocalizedName("gravitationEngine")
 
-
-        //for(i in registMap){
-        //    ForgeRegistries.ITEMS.register(i.value.setRegistryName((nameMap[i.key]?: errorPuts(i.key)).second))
-        //}
-
-        ForgeRegistries.ITEMS.register(itemSuperconductorCover.setRegistryName((nameMap["superconductorCover"] ?: errorPuts("superconductorCover")).second))
-        ForgeRegistries.ITEMS.register(itemSuperconductor.setRegistryName((nameMap["superconductor"] ?: errorPuts("superconductor")).second))
-        ForgeRegistries.ITEMS.register(itemCoolingCore.setRegistryName((nameMap["coolingCore"] ?: errorPuts("coolingCore")).second))
+        for(i in registerMap){
+            ForgeRegistries.ITEMS.register(i.value.setRegistryName((nameMap[i.key]?: errorPuts(i.key))))
+        }
     }
 
     @SideOnly(Side.CLIENT)
     fun clientInit() {
-        //for(i in registMap){
-        //   ModelLoader.setCustomModelResourceLocation(i.value,0,ModelResourceLocation(i.value.registryName!!,"inventory"))
-        //}
-        ModelLoader.setCustomModelResourceLocation(itemSuperconductorCover, 0, ModelResourceLocation(itemSuperconductorCover.registryName!!, "inventory"))
-        ModelLoader.setCustomModelResourceLocation(itemSuperconductor, 0, ModelResourceLocation(itemSuperconductor.registryName!!, "inventory"))
-        ModelLoader.setCustomModelResourceLocation(itemCoolingCore, 0, ModelResourceLocation(itemCoolingCore.registryName!!, "inventory"))
+        for(i in registerMap){
+           ModelLoader.setCustomModelResourceLocation(i.value,0,ModelResourceLocation(i.value.registryName!!,"inventory"))
+        }
     }
 
     private fun errorPuts(args:String):Nothing {
