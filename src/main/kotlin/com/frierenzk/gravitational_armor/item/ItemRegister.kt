@@ -19,22 +19,22 @@ object ItemRegister {
             Pair(ItemName.superconductorCover.name, "crafting/superconductor_cover"), //first one is language var name, and second one is model json name
             Pair(ItemName.superconductor.name, "crafting/superconductor"),
             Pair(ItemName.coolingCore.name, "crafting/cooling_core"),
-            Pair(ItemName.gravitationEngine.name,"crafting/gravitation_engine"),
+            Pair(ItemName.gravitationEngine.name, "crafting/gravitation_engine"),
             Pair(ItemName.ultimateLapPack.name, "ultimate_lap_pack"),
-            Pair(ItemName.gravitationArmor.name,"gravitation_armor")
+            Pair(ItemName.gravitationArmor.name, "gravitation_armor")
     )
 
     private val registerMap = HashMap<String, Item>()
-    lateinit var creativeTabIcon:ItemStack
+    lateinit var creativeTabIcon: ItemStack
 
     fun init() {
         registerMap[ItemName.superconductorCover.name] = ItemSuperconductorCover().setUnlocalizedName(ItemName.superconductorCover.name)
-        registerMap["superconductor"] = ItemSuperconductor().setUnlocalizedName("superconductor")
-        registerMap["coolingCore"] = ItemCoolingCore().setUnlocalizedName("coolingCore")
-        registerMap["gravitationEngine"] = ItemGravitationEngine().setUnlocalizedName("gravitationEngine")
+        registerMap[ItemName.superconductor.name] = ItemSuperconductor().setUnlocalizedName(ItemName.superconductor.name)
+        registerMap[ItemName.coolingCore.name] = ItemCoolingCore().setUnlocalizedName(ItemName.coolingCore.name)
+        registerMap[ItemName.gravitationEngine.name] = ItemGravitationEngine().setUnlocalizedName(ItemName.gravitationEngine.name)
 
-        registerMap["ultimateLapPack"] = ItemUltimateLapPack().setUnlocalizedName("ultimateLapPack")
-        registerMap["gravitationArmor"] = ItemGravitationArmor().setUnlocalizedName("gravitationArmor")
+        registerMap[ItemName.ultimateLapPack.name] = ItemUltimateLapPack().setUnlocalizedName(ItemName.ultimateLapPack.name)
+        registerMap[ItemName.gravitationArmor.name] = ItemGravitationArmor().setUnlocalizedName(ItemName.gravitationArmor.name)
         //Other items
         // registerMap["xxx"] = ItemSuperconductorCover().setUnlocalizedName("xxx")
 
@@ -52,7 +52,7 @@ object ItemRegister {
         }
     }
 
-    fun getItems(name:String):Item {
+    fun getItems(name: String): Item {
         return registerMap[name]!!
     }
 

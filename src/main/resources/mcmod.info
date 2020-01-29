@@ -2,13 +2,13 @@
 {
   "modid": "gravitational_armor",
   "name": "Gravitational Armor",
-  "description": "Example placeholder mod.",
+  "description": "Gravitational Armor with creative fly speed in hover mode. This is addon for IndustrialCraft 2",
   "version": "1.0",
   "mcversion": "1.12.2",
-  "url": "",
-  "updateUrl": "",
+  "url": "https://github.com/FrierenZk/Gravitational-Armor",
+  "updateUrl": "https://github.com/FrierenZk/Gravitational-Armor/releases/latest",
   "authorList": ["FrierenZk"],
-  "credits": "The Forge and FML guys, for making this example",
+  "credits": "Created by FrierenZk, based on Chocohead's versions, Thanks to SeNtiMeL, Arhan and Krezzard for past graphics and crafting ideas",
   "logoFile": "",
   "screenshots": [],
   "dependencies": ["ic2","forgelin"]
