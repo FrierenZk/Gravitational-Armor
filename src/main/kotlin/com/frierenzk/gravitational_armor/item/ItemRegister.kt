@@ -1,5 +1,7 @@
 package com.frierenzk.gravitational_armor.item
 
+import com.frierenzk.gravitational_armor.item.armor.ItemGravitationArmor
+import com.frierenzk.gravitational_armor.item.armor.ItemUltimateLapPack
 import com.frierenzk.gravitational_armor.item.crafting.ItemCoolingCore
 import com.frierenzk.gravitational_armor.item.crafting.ItemGravitationEngine
 import com.frierenzk.gravitational_armor.item.crafting.ItemSuperconductor
@@ -14,27 +16,29 @@ import net.minecraftforge.fml.relauncher.SideOnly
 
 object ItemRegister {
     private val nameMap = mapOf(
-            Pair("superconductorCover", "crafting/superconductor_cover"), //first one is language var name, and second one is model json name
-            Pair("superconductor", "crafting/superconductor"),
-            Pair("coolingCore", "crafting/cooling_core"),
-            Pair("gravitationEngine", "crafting/gravitation_engine"),
-            Pair("gravitationArmor","gravitation_armor")
+            Pair(ItemName.superconductorCover.name, "crafting/superconductor_cover"), //first one is language var name, and second one is model json name
+            Pair(ItemName.superconductor.name, "crafting/superconductor"),
+            Pair(ItemName.coolingCore.name, "crafting/cooling_core"),
+            Pair(ItemName.gravitationEngine.name,"crafting/gravitation_engine"),
+            Pair(ItemName.ultimateLapPack.name, "ultimate_lap_pack"),
+            Pair(ItemName.gravitationArmor.name,"gravitation_armor")
     )
 
     private val registerMap = HashMap<String, Item>()
     lateinit var creativeTabIcon:ItemStack
 
     fun init() {
-        registerMap["superconductorCover"] = ItemSuperconductorCover().setUnlocalizedName("superconductorCover")
+        registerMap[ItemName.superconductorCover.name] = ItemSuperconductorCover().setUnlocalizedName(ItemName.superconductorCover.name)
         registerMap["superconductor"] = ItemSuperconductor().setUnlocalizedName("superconductor")
         registerMap["coolingCore"] = ItemCoolingCore().setUnlocalizedName("coolingCore")
         registerMap["gravitationEngine"] = ItemGravitationEngine().setUnlocalizedName("gravitationEngine")
 
-        registerMap["gravitationArmor"] = ItemGravitationEngine().setUnlocalizedName("gravitationArmor")
+        registerMap["ultimateLapPack"] = ItemUltimateLapPack().setUnlocalizedName("ultimateLapPack")
+        registerMap["gravitationArmor"] = ItemGravitationArmor().setUnlocalizedName("gravitationArmor")
         //Other items
         // registerMap["xxx"] = ItemSuperconductorCover().setUnlocalizedName("xxx")
 
-        creativeTabIcon = ItemStack(registerMap["gravitationArmor"]!!)
+        creativeTabIcon = ItemStack(registerMap[ItemName.gravitationArmor.name]!!)
 
         for (i in registerMap) {
             ForgeRegistries.ITEMS.register(i.value.setRegistryName((nameMap[i.key] ?: errorPuts(i.key))))
