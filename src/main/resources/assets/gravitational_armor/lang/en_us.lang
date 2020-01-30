@@ -2,5 +2,5 @@ item.superconductorCover.name=Superconductor Cover
 item.superconductor.name=Superconductor
 item.coolingCore.name=Cooling Core
 item.gravitationEngine.name=Gravitation Engine
-item.ultimateLapPack.name=Ultimate Lappack
-item.gravitationArmor.name=Gravitation Armor
+ic2.ultimateLapPack=Ultimate Lappack
+ic2.gravitationArmor=Gravitation Armor

@@ -2,5 +2,5 @@ item.superconductorCover.name=超导线缆外层
 item.superconductor.name=超导线缆
 item.coolingCore.name=冷却核心
 item.gravitationEngine.name=重力引擎
-item.ultimateLapPack.name=终极兰波顿电力背包
-item.gravitationArmor.name=重力胸甲
+ic2.ultimateLapPack=终极兰波顿电力背包
+ic2.gravitationArmor=引力胸甲
